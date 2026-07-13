@@ -92,12 +92,31 @@ with col4:
     if st.button("-", use_container_width=True):
         press("-")
 
+
 # ---------- Row 4 ----------
 col1, col2, col3, col4 = st.columns(4)
 
 with col1:
     if st.button("0", use_container_width=True):
         press("0")
+
+with col2:
+    if st.button("00", use_container_width=True):
+        press("00")
+
+with col3:
+    if st.button("000", use_container_width=True):
+        press("000")
+
+with col4:
+    if st.button("+", use_container_width=True):
+        press("+")
+# ---------- Row 5 ----------
+col1, col2, col3, col4 = st.columns(4)
+
+with col1:
+    if st.button("xⁿ", use_container_width=True):
+        press("**")
 
 with col2:
     if st.button(".", use_container_width=True):
@@ -108,8 +127,9 @@ with col3:
         calculate()
 
 with col4:
-    if st.button("+", use_container_width=True):
-        press("+")
+    if st.button("%", use_container_width=True):
+        press("%")
+
 
 # ---------- Last Row ----------
 col1, col2 = st.columns(2)
