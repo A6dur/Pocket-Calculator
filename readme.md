@@ -1,12 +1,15 @@
-# 🧮 Streamlit Pocket Calculator
+# 🧮 Pocket Calculator
 
 <div align="center">
 
 ![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![Streamlit](https://img.shields.io/badge/Streamlit-Latest-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)
+![Status](https://img.shields.io/badge/Status-Active-success?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 
-### A simple and elegant pocket calculator built with **Python** and **Streamlit**
+### A modern pocket calculator built with **Python** and **Streamlit**
+
+Simple, responsive, and interactive—designed to resemble a traditional handheld calculator while demonstrating Streamlit's UI capabilities.
 
 </div>
 
@@ -14,78 +17,73 @@
 
 ## ✨ Features
 
-- 🔢 Traditional pocket calculator layout
+### 🔢 Basic Operations
+
 - ➕ Addition
 - ➖ Subtraction
 - ✖️ Multiplication
 - ➗ Division
-- 🧹 Clear button
-- ⌫ Backspace support
-- ⚡ Instant calculations
-- 🎨 Clean and responsive Streamlit UI
+
+### 🚀 Advanced Operations
+
+- 🧮 Power (`xⁿ`)
+- 📐 Modulus / Remainder (`%`)
+
+### ⚙️ Utility Features
+
+- 🔢 Number Buttons (`0–9`)
+- 💯 Quick Entry Buttons (`00`, `000`)
+- 🔘 Decimal Support (`.`)
+- 🟰 Expression Evaluation (`=`)
+- 🧹 Clear Display (`C`)
+- ⌫ Backspace
+- ⚡ Instant UI updates using Streamlit Session State
+- 📱 Responsive calculator layout
 
 ---
 
 ## 📸 Preview
 
-```
-+------------------------+
-|        Display         |
-+------------------------+
-|  7  |  8  |  9  |  /   |
-|-----|-----|-----|------|
-|  4  |  5  |  6  |  *   |
-|-----|-----|-----|------|
-|  1  |  2  |  3  |  -   |
-|-----|-----|-----|------|
-|  0  |  .  |  =  |  +   |
-+------------------------+
-|    C    |     ⌫        |
-+------------------------+
-```
+<div align="center">
 
----
+<img src="assets/calculator_sample.jpeg" alt="Pocket Calculator Preview" width="850">
 
-# 🚀 Getting Started
+</div>
 
-## 1️⃣ Clone the repository
+# 🚀 Installation
+
+## Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/streamlit-pocket-calculator.git
+git clone https://github.com/A6dur/Pocket-Calculator.git
 ```
 
----
-
-## 2️⃣ Navigate to the project
+## Navigate to the Project
 
 ```bash
-cd streamlit-pocket-calculator
+cd Pocket-Calculator
 ```
 
----
-
-## 3️⃣ Install dependencies
+## Install Dependencies
 
 ```bash
 pip install streamlit
 ```
 
----
-
-## 4️⃣ Run the application
+## Run the Application
 
 ```bash
 streamlit run calculator.py
 ```
 
-The application will automatically open in your browser.
+Your browser will automatically open the calculator.
 
 ---
 
 # 📂 Project Structure
 
 ```
-📦 Streamlit-Pocket-Calculator
+Pocket-Calculator/
 │
 ├── calculator.py
 ├── README.md
@@ -94,52 +92,71 @@ The application will automatically open in your browser.
 
 ---
 
-# 🛠 Built With
+# 🛠 Technologies Used
 
 - 🐍 Python
 - 🎈 Streamlit
+- 🔄 Streamlit Session State
 
 ---
 
-# 📖 How It Works
+# ⚙️ How It Works
 
-The calculator stores the current expression using **Streamlit Session State**.
+The calculator stores the current mathematical expression inside **Streamlit Session State**.
 
 Each button press:
 
-- Updates the expression
-- Reruns the application
-- Refreshes the display instantly
+- Appends the selected value to the expression.
+- Instantly refreshes the interface.
+- Preserves the current expression.
+- Evaluates the expression when **=** is pressed.
 
-When **=** is pressed, the expression is evaluated and the result is displayed.
+The calculator uses Python's expression evaluation to perform calculations while maintaining a simple and interactive interface.
 
 ---
 
-# 💡 Example
+# 📋 Supported Operators
 
-```
-Input:
+| Button | Operation |
+|--------|-----------|
+| `+` | Addition |
+| `-` | Subtraction |
+| `*` | Multiplication |
+| `/` | Division |
+| `%` | Remainder (Modulus) |
+| `xⁿ` | Exponent / Power |
+| `.` | Decimal Point |
+| `00` | Double Zero |
+| `000` | Triple Zero |
+| `⌫` | Delete Last Character |
+| `C` | Clear Display |
 
-15+20
+---
 
-Output:
+# 💡 Example Calculations
 
-35
-```
+| Expression | Result |
+|------------|--------|
+| `15+20` | `35` |
+| `18%5` | `3` |
+| `2**8` *(xⁿ)* | `256` |
+| `45/9` | `5` |
+| `7*8` | `56` |
 
 ---
 
 # 🎯 Future Improvements
 
-- [ ] Scientific Calculator
-- [ ] Keyboard Support
-- [ ] Percentage (%)
+- [ ] Scientific Calculator Mode
+- [ ] Parentheses `(` `)`
 - [ ] Square Root (√)
-- [ ] Exponents (^)
-- [ ] Memory Functions (M+, M-, MR, MC)
+- [ ] Trigonometric Functions
+- [ ] Logarithmic Functions
+- [ ] Memory Operations (M+, M-, MR, MC)
+- [ ] Keyboard Support
 - [ ] Calculation History
-- [ ] Dark/Light Theme Toggle
-- [ ] Better Error Handling
+- [ ] Dark / Light Theme Toggle
+- [ ] Better Error Messages
 
 ---
 
@@ -147,41 +164,41 @@ Output:
 
 Contributions are welcome!
 
-1. Fork the repository
-2. Create your feature branch
+1. Fork this repository.
+2. Create a new feature branch.
 
 ```bash
-git checkout -b feature/AmazingFeature
+git checkout -b feature/your-feature
 ```
 
-3. Commit your changes
+3. Commit your changes.
 
 ```bash
-git commit -m "Add Amazing Feature"
+git commit -m "Add new feature"
 ```
 
-4. Push to the branch
+4. Push your branch.
 
 ```bash
-git push origin feature/AmazingFeature
+git push origin feature/your-feature
 ```
 
-5. Open a Pull Request
+5. Open a Pull Request.
 
 ---
 
-# ⭐ Show Your Support
+# ⭐ Support the Project
 
-If you found this project helpful, consider giving it a ⭐ on GitHub.
+If you found this project helpful, consider giving it a **⭐ Star** on GitHub.
 
-It motivates developers to build more awesome projects!
+It helps others discover the project and motivates future improvements.
 
 ---
 
 <div align="center">
 
-## 💻 Happy Coding!
+### 💻 Made with ❤️ using Python & Streamlit
 
-Made with ❤️ using **Python** & **Streamlit**
+**Thanks for visiting! Happy Coding! 🚀**
 
 </div>
