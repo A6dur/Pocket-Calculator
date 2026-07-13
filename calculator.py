@@ -1,60 +1,123 @@
 import streamlit as st
 
-# Page Configuration
-st.set_page_config(
-    page_title="Simple Calculator",
-    page_icon="🧮",
-    layout="centered"
-)
+st.set_page_config(page_title="Pocket Calculator", layout="centered")
 
-st.title("🧮 Simple Calculator")
-st.write("Perform basic arithmetic operations.")
+st.title("🧮 Pocket Calculator")
 
-st.divider()
+# Initialize session state
+if "expression" not in st.session_state:
+    st.session_state.expression = ""
 
-# User Inputs
-num1 = st.text_input("Enter First Number")
-num2 = st.text_input("Enter Second Number")
+# ---------- Functions ----------
+def press(value):
+    st.session_state.expression += value
+    st.rerun()
 
-operation = st.selectbox(
-    "Choose Operation",
-    (
-        "Addition",
-        "Subtraction",
-        "Multiplication",
-        "Division"
-    )
-)
+def clear():
+    st.session_state.expression = ""
+    st.rerun()
 
-if st.button("Calculate"):
+def backspace():
+    st.session_state.expression = st.session_state.expression[:-1]
+    st.rerun()
 
+def calculate():
     try:
-        # Convert inputs to float
-        number1 = float(num1)
-        number2 = float(num2)
+        st.session_state.expression = str(eval(st.session_state.expression))
+    except:
+        st.session_state.expression = "Error"
+    st.rerun()
 
-        # Perform calculation
-        if operation == "Addition":
-            result = number1 + number2
+# ---------- Display ----------
+st.text_input(
+    "Display",
+    value=st.session_state.expression,
+    disabled=True,
+)
 
-        elif operation == "Subtraction":
-            result = number1 - number2
+# ---------- Row 1 ----------
+col1, col2, col3, col4 = st.columns(4)
 
-        elif operation == "Multiplication":
-            result = number1 * number2
+with col1:
+    if st.button("7", use_container_width=True):
+        press("7")
 
-        elif operation == "Division":
-            if number2 == 0:
-                raise ZeroDivisionError
-            result = number1 / number2
+with col2:
+    if st.button("8", use_container_width=True):
+        press("8")
 
-        st.success(f"Result = {result}")
+with col3:
+    if st.button("9", use_container_width=True):
+        press("9")
 
-    except ValueError:
-        st.error("Please enter valid numeric values.")
+with col4:
+    if st.button("/", use_container_width=True):
+        press("/")
 
-    except ZeroDivisionError:
-        st.error("Cannot divide by zero.")
+# ---------- Row 2 ----------
+col1, col2, col3, col4 = st.columns(4)
 
-    except Exception as e:
-        st.error(f"An unexpected error occurred: {e}")
+with col1:
+    if st.button("4", use_container_width=True):
+        press("4")
+
+with col2:
+    if st.button("5", use_container_width=True):
+        press("5")
+
+with col3:
+    if st.button("6", use_container_width=True):
+        press("6")
+
+with col4:
+    if st.button("*", use_container_width=True):
+        press("*")
+
+# ---------- Row 3 ----------
+col1, col2, col3, col4 = st.columns(4)
+
+with col1:
+    if st.button("1", use_container_width=True):
+        press("1")
+
+with col2:
+    if st.button("2", use_container_width=True):
+        press("2")
+
+with col3:
+    if st.button("3", use_container_width=True):
+        press("3")
+
+with col4:
+    if st.button("-", use_container_width=True):
+        press("-")
+
+# ---------- Row 4 ----------
+col1, col2, col3, col4 = st.columns(4)
+
+with col1:
+    if st.button("0", use_container_width=True):
+        press("0")
+
+with col2:
+    if st.button(".", use_container_width=True):
+        press(".")
+
+with col3:
+    if st.button("=", type="primary", use_container_width=True):
+        calculate()
+
+with col4:
+    if st.button("+", use_container_width=True):
+        press("+")
+
+# ---------- Last Row ----------
+col1, col2 = st.columns(2)
+
+with col1:
+    if st.button("C", type="secondary", use_container_width=True):
+        clear()
+
+with col2:
+    if st.button("⌫", use_container_width=True):
+        backspace()
