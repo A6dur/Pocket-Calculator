@@ -15,6 +15,11 @@ Simple, responsive, and interactive—designed to resemble a traditional handhel
 
 ---
 
+## 🌐 Live Demo
+
+🚀 **Use my Calculator here**
+
+**https://akbmfflbc5gn26m9y7h7nk.streamlit.app**
 ## ✨ Features
 
 ### 🔢 Basic Operations
